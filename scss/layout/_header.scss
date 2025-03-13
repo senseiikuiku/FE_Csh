@@ -1,0 +1,169 @@
+@use "../abstracts";
+
+%flexItemsCenter {
+   display: flex;
+   align-items: center;
+}
+
+.header {
+   background: var(--header-bg-color);
+}
+
+.top_bar {
+   @extend %flexItemsCenter;
+   z-index: 1;
+   padding: 30px 0;
+
+   @include abstracts.breakpoint(lg) {
+      padding: 20px 0;
+   }
+
+   @include abstracts.breakpoint(sm) {
+      justify-content: space-between;
+      padding: 16px 0;
+   }
+
+   &__more {
+      display: none;
+
+      @include abstracts.breakpoint(lg) {
+         display: block;
+      }
+   }
+}
+
+.navbar {
+   margin-left: 144px;
+
+   @include abstracts.breakpoint(xl) {
+      margin-left: 50px;
+   }
+   @include abstracts.breakpoint(lg) {
+      display: none;
+   }
+
+   &__list {
+      @extend %flexItemsCenter;
+      gap: 30px;
+   }
+
+   &__list li {
+      position: relative;
+   }
+
+   &__link {
+      font-size: 1.5rem;
+      font-weight: 500;
+      line-height: 146.667%; /* 146.667% */
+   }
+
+   &__link::after {
+      display: flex;
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      left: 2px;
+      bottom: 0px;
+      width: 80%;
+      height: 2px;
+      background: var(--after-hover-color);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.5s;
+   }
+
+   &__list li:hover > &__link {
+      color: var(--text-hover-header-color);
+   }
+
+   &__list li:hover > &__link::after {
+      transform: scale(1);
+      transform-origin: left;
+   }
+}
+
+.top-act {
+   display: flex;
+   align-items: center;
+   margin-left: auto;
+   gap: 20px;
+
+   @include abstracts.breakpoint(sm) {
+      margin-left: 0;
+   }
+
+   &__group {
+      @extend %flexItemsCenter;
+
+      height: 50px;
+      min-width: 50px;
+
+      border-radius: 8px;
+      background: var(--top-act-group-bg-color);
+      box-shadow: 0px 20px 60px 10px var(--top-act-group-shadow);
+
+      @include abstracts.breakpoint(md) {
+         display: none;
+      }
+   }
+
+   &__group--single {
+      @include abstracts.breakpoint(lg) {
+         display: none;
+      }
+   }
+
+   &__group--single &__btn {
+      padding: 13px 13px 13px 0;
+      gap: 0;
+   }
+
+   &__btn {
+      @extend %flexItemsCenter;
+      gap: 10px;
+      padding: 13px 20px;
+   }
+
+   &__search-field {
+      border-radius: 8px 0 0 8px;
+      font-size: 1.6rem;
+      padding: 13px;
+      width: 205px;
+
+      @include abstracts.breakpoint(xxl) {
+         width: 170px;
+      }
+
+      @include abstracts.breakpoint(xl) {
+         width: 110px;
+      }
+   }
+
+   &__group--single &__btn &__icon {
+      padding-left: 10px;
+   }
+
+   &__search-field::placeholder {
+      color: var(--placeholder-color);
+   }
+
+   &__title {
+      font-size: 1.5rem;
+      font-weight: 500;
+      line-height: 146.667%; /* 146.667% */
+   }
+
+   &__separate {
+      width: 1.5px;
+      height: 40px;
+      background: var(--top-act-group-separate);
+   }
+
+   &__avatar {
+      display: block;
+      width: 50px;
+      height: 50px;
+      border-radius: 8px;
+      cursor: pointer;
+   }
+}

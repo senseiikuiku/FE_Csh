@@ -1,0 +1,15 @@
+html.dark {
+   --text-color: #fff;
+   --icon-color: brightness(0) saturate(100%) invert(100%) sepia(0%)
+      saturate(2%) hue-rotate(35deg) brightness(107%) contrast(101%);
+
+   --body-bg: #292e39;
+
+   --header-bg-color: #171c28;
+   --text-hover-header-color: #fff;
+   --after-hover-color: #f6f6f6;
+   --top-act-group-bg-color: #292e39;
+   --top-act-group-shadow: rgba(0, 0, 0, 0.2);
+   --top-act-group-separate: #ededf6;
+   --placeholder-color: #fff;
+}
